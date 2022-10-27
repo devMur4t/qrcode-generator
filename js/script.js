@@ -11,7 +11,6 @@ const qrInfo = (e) => {
     const color = document.getElementById('color').value;
     const qrcolor = document.getElementById('qrcolor').value;
 
-    color.defaultValue
 
     if(url === '') {
         alert('Please enter a valid url.');
