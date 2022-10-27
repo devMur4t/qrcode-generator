@@ -8,6 +8,10 @@ const qrInfo = (e) => {
 
     const url = document.getElementById('url').value;
     const size = document.getElementById('size').value;
+    const color = document.getElementById('color').value;
+    const qrcolor = document.getElementById('qrcolor').value;
+
+    color.defaultValue
 
     if(url === '') {
         alert('Please enter a valid url.');
@@ -15,7 +19,7 @@ const qrInfo = (e) => {
         showSpinner();
         setTimeout(() => {
             hideSpinner();
-            generateQrCode(url, size);
+            generateQrCode(url, size, color, qrcolor);
             setTimeout(() => {
                 const saveUrl = qr.querySelector('img').src;
                 createSaveBtn(saveUrl);
@@ -25,11 +29,13 @@ const qrInfo = (e) => {
     console.log(url, size);
 }
 
-const generateQrCode = (url, size) => {
+const generateQrCode = (url, size, color, qrcolor) => {
     const qrcode = new QRCode('qrcode', {
         text: url,
         width: size,
         height: size,
+        colorLight: color,
+        colorDark: qrcolor,
     });
 }
 
